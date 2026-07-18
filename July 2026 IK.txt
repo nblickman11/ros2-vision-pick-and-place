@@ -1,0 +1,97 @@
+import math
+
+# ==========================
+# TARGET
+# ==========================
+x_target = -1.2
+y_target = 12.0
+z_target = -2.2
+
+# ==========================
+# ARM GEOMETRY
+# ==========================
+L1 = 7.75
+L2 = 11.0
+
+elbow_config = "down"
+
+# ==========================
+# CALIBRATION
+#
+# Known physical pose:
+# target = (-1.2, 12, -2.2)
+# servo commands = (0, 165, 0)
+# ==========================
+
+BASE_REFERENCE_IK = 95.710593
+SHOULDER_OFFSET = 237.291613
+ELBOW_REFERENCE_IK = 100.401362
+
+# ==========================
+# IK CALCULATION
+# ==========================
+
+# Base geometric angle
+theta_base = math.atan2(y_target, x_target)
+
+# Horizontal distance from base axis
+r = math.sqrt(x_target**2 + y_target**2)
+
+# Distance from shoulder joint to target
+h = math.sqrt(r**2 + z_target**2)
+
+# Proper reachability checks
+if h > L1 + L2:
+    raise ValueError("Target is too far away.")
+
+if h < abs(L1 - L2):
+    raise ValueError("Target is too close to the shoulder.")
+
+# Elbow angle
+cos_elbow = (
+    h**2 - L1**2 - L2**2
+) / (2 * L1 * L2)
+
+cos_elbow = max(-1.0, min(1.0, cos_elbow))
+
+if elbow_config == "down":
+    theta_elbow = math.acos(cos_elbow)
+else:
+    theta_elbow = -math.acos(cos_elbow)
+
+# Shoulder angle
+theta_shoulder = (
+    math.atan2(z_target, r)
+    - math.atan2(
+        L2 * math.sin(theta_elbow),
+        L1 + L2 * math.cos(theta_elbow)
+    )
+)
+
+# Convert geometric angles to degrees
+theta_base_deg = math.degrees(theta_base)
+theta_shoulder_deg = math.degrees(theta_shoulder)
+theta_elbow_deg = math.degrees(theta_elbow)
+
+# ==========================
+# MAP IK ANGLES TO SERVOS
+# ==========================
+
+# Base direction is reversed relative to atan2
+servoBase = BASE_REFERENCE_IK - theta_base_deg
+
+# Shoulder uses an additive calibration offset
+servoShoulder = SHOULDER_OFFSET + theta_shoulder_deg
+
+# Elbow direction is reversed
+servoElbow = ELBOW_REFERENCE_IK - theta_elbow_deg
+
+print("=== GEOMETRIC IK ANGLES ===")
+print(f"Base:     {theta_base_deg:.2f}°")
+print(f"Shoulder: {theta_shoulder_deg:.2f}°")
+print(f"Elbow:    {theta_elbow_deg:.2f}°")
+
+print("\n=== SERVO COMMANDS ===")
+print(f"Base servo:     {servoBase:.2f}°")
+print(f"Shoulder servo: {servoShoulder:.2f}°")
+print(f"Elbow servo:    {servoElbow:.2f}°")

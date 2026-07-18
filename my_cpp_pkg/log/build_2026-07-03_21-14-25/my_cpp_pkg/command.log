@@ -1,0 +1,2 @@
+Invoking command in '/home/nelson/ros2_ws/src/my_cpp_pkg/build/my_cpp_pkg': /usr/bin/cmake /home/nelson/ros2_ws/src/my_cpp_pkg -DCMAKE_INSTALL_PREFIX=/home/nelson/ros2_ws/src/my_cpp_pkg/install/my_cpp_pkg
+Invoked command in '/home/nelson/ros2_ws/src/my_cpp_pkg/build/my_cpp_pkg' returned '1': /usr/bin/cmake /home/nelson/ros2_ws/src/my_cpp_pkg -DCMAKE_INSTALL_PREFIX=/home/nelson/ros2_ws/src/my_cpp_pkg/install/my_cpp_pkg

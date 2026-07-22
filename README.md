@@ -22,7 +22,18 @@ Rasberry Pi, Rasberry Pi Camera Module, Camera Ribbon, Camera Articulating Magic
 #### Scene View:  
 <img width="633" height="468" alt="Screenshot 2026-07-11 at 12 08 10 AM" src="https://github.com/user-attachments/assets/75a38706-59c9-44b4-b0d8-ac6f5f12a059" />  
 
-#### Robot Picture
+#### Robot Picture:
 <img width="600" height="800" alt="IMG_0551" src="https://github.com/user-attachments/assets/d3de69ee-e0f5-40e1-954c-38b1a93dee25" />
+
+#### Learning Lesson:
+Pixel-to-Robot Coordinate Calibration
+
+The vision node detects the center of each red object in image pixel coordinates (u,v). Four calibration points were manually measured by placing a block at known robot coordinates (x,y,z) and recording the corresponding camera pixels. These point correspondences were used to compute an affine transformation that converts any detected pixel location into the robot's coordinate frame.
+
+An affine transformation is used instead of a simple proportional scale because the camera is mounted at an angle above the workspace. Due to perspective and viewing geometry, equal distances in image pixels do not correspond to equal distances on the tabletop across the entire field of view. The affine model compensates for these non-uniform scaling and skew effects, allowing the manipulator to accurately reach objects throughout the workspace.
+
+robot_x = ax * u + bx * v + cx
+robot_y = ay * u + by * v + cy
+robot_z = tabletop_z
 
 

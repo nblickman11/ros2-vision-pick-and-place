@@ -25,15 +25,23 @@ Rasberry Pi, Rasberry Pi Camera Module, Camera Ribbon, Camera Articulating Magic
 #### Robot Picture:
 <img width="600" height="800" alt="IMG_0551" src="https://github.com/user-attachments/assets/d3de69ee-e0f5-40e1-954c-38b1a93dee25" />
 
-#### Learning Lesson:
-Pixel-to-Robot Coordinate Calibration
+#### Computer Vision Analysis:
+Pixel-to-Robot Coordinate
 
-The vision node detects the center of each red object in image pixel coordinates (u,v). Four calibration points were manually measured by placing a block at known robot coordinates (x,y,z) and recording the corresponding camera pixels. These point correspondences were used to compute an affine transformation that converts any detected pixel location into the robot's coordinate frame.
+The vision node (Color_Detector_Node.py) detects the center of each red object in image pixel coordinates (u,v). Four calibration points were manually measured by placing a block at known robot coordinates (x,y,z) and recording the corresponding camera pixels. These point correspondences were used to compute an affine transformation that converts any detected pixel location into the robot's coordinate frame.
 
 An affine transformation is used instead of a simple proportional scale because the camera is mounted at an angle above the workspace. Due to perspective and viewing geometry, equal distances in image pixels do not correspond to equal distances on the tabletop across the entire field of view. The affine model compensates for these non-uniform scaling and skew effects, allowing the manipulator to accurately reach objects throughout the workspace.
 
-robot_x = ax * u + bx * v + cx
-robot_y = ay * u + by * v + cy
-robot_z = tabletop_z
+robot_x = ax * u + bx * v + cx  
+robot_y = ay * u + by * v + cy  
+robot_z = tabletop_z  
+
+#### Inverse Kinematics Analysis:
+Closed-Form Inverse Kinematics
+
+The robotic arm computes joint angles directly from a desired Cartesian target (x,y,z) using a closed-form inverse kinematics solution. Rather than using iterative numerical methods (such as Jacobian-based IK), the algorithm exploits the arm's simple three-degree-of-freedom geometry. The base angle is computed with atan2(), the elbow angle is solved using the Law of Cosines, and the shoulder angle is determined from right-triangle trigonometry. After the inverse kinematics solution is obtained, calibrated servo offsets convert the ideal joint angles into physical servo commands that account for the arm's mechanical assembly. Because the manipulator has a simple kinematic structure, this approach does not require Denavit–Hartenberg parameters or homogeneous transformation matrices, resulting in an efficient, exact solution for reachable targets.  
+
+<img width="1536" height="1024" alt="9620da34-e03c-4d55-a7a1-bf02a158416a" src="https://github.com/user-attachments/assets/7be8d1c4-b96c-47f7-a078-e1623d91aa5e" />
+
 
 

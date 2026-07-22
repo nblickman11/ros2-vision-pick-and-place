@@ -10,7 +10,7 @@ The demo video is largely associated with the code in my_cpp_pkg/src, this locat
 #### System Architecture:
 
 #### Hardware Used: 
-Rasberry Pi, Rasberry Pi Camera Module and Ribbon, SD Card, Li-ion Battery Pack, 4DOF Robotic Arm Kit to assemble, LM2596 Buck Converter, Dupont Jumper Wires, 1-to-5 Wire Splice Connectors, 4 MG90S Micro Servo's, Arduino Uno R3, DC Barrel Jack Connectors, Inline DC Power Switch
+Rasberry Pi, Rasberry Pi Camera Module, Camera Ribbon, Camera Articulating Magic Arm, SD Card, Li-ion Battery Pack, 4DOF Robotic Arm Kit to assemble, LM2596 Buck Converter, Dupont Jumper Wires, 1-to-5 Wire Splice Connectors, 4 MG90S Micro Servo's, Arduino Uno R3, DC Barrel Jack Connectors, Inline DC Power Switch
 
 #### Camera Location:  
 <img width="300" height="400" alt="IMG_0553 copy" src="https://github.com/user-attachments/assets/02252125-4dfc-4fd9-9648-e0487cdd415a" />  
@@ -19,6 +19,6 @@ Rasberry Pi, Rasberry Pi Camera Module and Ribbon, SD Card, Li-ion Battery Pack,
 <img width="633" height="468" alt="Screenshot 2026-07-11 at 12 08 10 AM" src="https://github.com/user-attachments/assets/75a38706-59c9-44b4-b0d8-ac6f5f12a059" />  
 
 #### Robot Picture
-<img width="300" height="400" alt="IMG_0551" src="https://github.com/user-attachments/assets/d3de69ee-e0f5-40e1-954c-38b1a93dee25" />
+<img width="600" height="800" alt="IMG_0551" src="https://github.com/user-attachments/assets/d3de69ee-e0f5-40e1-954c-38b1a93dee25" />
 
 

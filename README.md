@@ -8,6 +8,7 @@ https://youtu.be/Kb_mZ1KI4Cs
 The demo video is largely associated with the code in my_cpp_pkg/src, this location contains my ROS pipeline.  The code for the arduino program is in Object_Detection_With_Pi.ino. The inverse kinematics math that is located in July 2026 IK.txt, is also inside of my ROS pipeline in IK_node.py.
 
 #### System Architecture:
+<img width="1694" height="929" alt="a2e0fc59-aaf7-4219-8efe-ed4d1df5b0a0" src="https://github.com/user-attachments/assets/06a93221-e3bb-40a0-bc91-e12937bd42eb" />
 
 #### Hardware Used: 
 Rasberry Pi, Rasberry Pi Camera Module, Camera Ribbon, Camera Articulating Magic Arm, SD Card, Li-ion Battery Pack, 4DOF Robotic Arm Kit to assemble, LM2596 Buck Converter, Dupont Jumper Wires, 1-to-5 Wire Splice Connectors, 4 MG90S Micro Servo's, Arduino Uno R3, DC Barrel Jack Connectors, Inline DC Power Switch

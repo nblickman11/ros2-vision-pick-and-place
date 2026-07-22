@@ -2,7 +2,7 @@
 I built a ROS 2-based robot arm that uses inverse kinematics and Raspberry Pi camera for vision-guided object pick and place.
 
 #### Video Link:
-
+https://youtu.be/Kb_mZ1KI4Cs  
 
 #### Camera Location:  
 <img width="300" height="400" alt="IMG_0553 copy" src="https://github.com/user-attachments/assets/02252125-4dfc-4fd9-9648-e0487cdd415a" />  

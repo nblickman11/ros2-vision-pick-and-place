@@ -1,8 +1,16 @@
-# ros2-vision-pick-and-place
+# Ros2-Vision-Pick-And-Place
 I built a ROS 2-based robot arm that uses inverse kinematics and Raspberry Pi camera for vision-guided object pick and place.
 
 #### Video Link:
 https://youtu.be/Kb_mZ1KI4Cs  
+
+#### Code Layout:
+The demo video is largely associated with the code in my_cpp_pkg/src, this location contains my ROS pipeline.  The code for the arduino program is in Object_Detection_With_Pi.ino. The inverse kinematics math that is located in July 2026 IK.txt, is also inside of my ROS pipeline in IK_node.py.
+
+#### System Architecture:
+
+#### Hardware Used: 
+Rasberry Pi, Rasberry Pi Camera Module and Ribbon, SD Card, Li-ion Battery Pack, 4DOF Robotic Arm Kit to assemble, LM2596 Buck Converter, Dupont Jumper Wires, 1-to-5 Wire Splice Connectors, 4 MG90S Micro Servo's, Arduino Uno R3, DC Barrel Jack Connectors, Inline DC Power Switch
 
 #### Camera Location:  
 <img width="300" height="400" alt="IMG_0553 copy" src="https://github.com/user-attachments/assets/02252125-4dfc-4fd9-9648-e0487cdd415a" />  
